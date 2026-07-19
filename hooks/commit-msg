@@ -1,0 +1,12 @@
+#!/bin/sh
+# Final safety check: block any Cursor branding left in the commit message.
+
+MSG_FILE="$1"
+
+if grep -qiE 'cursoragent@cursor\.com|co-authored-by:.*cursor|made-with:.*cursor' "$MSG_FILE"; then
+  echo "ERROR: Cursor attribution detected in commit message."
+  echo "Disable Cursor Settings > Agents > Attribution, then try again."
+  exit 1
+fi
+
+exit 0
