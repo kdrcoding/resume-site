@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+*.log
+.resume-pw
+
+# Plaintext resume — NEVER publish this. Only the encrypted index.html is pushed.
+resume-plain.html

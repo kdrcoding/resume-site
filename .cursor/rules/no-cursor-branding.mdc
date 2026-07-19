@@ -1,0 +1,15 @@
+---
+description: Never attribute work to Cursor in commits, deploys, or site content
+alwaysApply: true
+---
+
+# No Cursor branding on deploys
+
+When editing or publishing this résumé site:
+
+- Never mention **Cursor**, **Cursor AI**, or **Contributors Cursor** in commit messages, PR titles, PR bodies, README, HTML, or any user-facing text.
+- Never add `Co-authored-by`, `Signed-off-by`, `Made-with: Cursor`, or contributor trailers that reference Cursor.
+- In **Cursor**: turn off **Settings → Agents → Attribution** (Commit + PR). Cloud/CLI commits can still add trailers — the `hooks/prepare-commit-msg` hook in this repo strips them before each commit.
+- Commit messages should be plain and professional (e.g. `Update résumé content and styling`).
+- Before pushing, verify `git log -1` shows only **Kadir Ravshanov** as author with no Cursor co-author lines.
+- Only link to GitHub repos that still exist under `github.com/kdrcoding` — remove dead project links after repos are deleted.
