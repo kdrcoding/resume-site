@@ -29,7 +29,7 @@ const html = readFileSync(SRC, "utf8");
 
 function between(str, start, end) {
   const i = str.indexOf(start);
-  const j = str.indexOf(end);
+  const j = str.indexOf(end, i + start.length);
   if (i < 0 || j < 0) {
     console.error(`ERROR: marker not found in ${SRC}: ${i < 0 ? start : end}`);
     console.error("Make sure the SPRITE and RESUME markers are intact.");
