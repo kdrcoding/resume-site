@@ -25,19 +25,24 @@ if errorlevel 1 (
 echo Staging changes...
 git add -A
 
+REM Prompt for a commit message (default: "Update résumé").
+set "COMMIT_MSG=Update résumé"
+set /p COMMIT_MSG=Commit message [Update résumé]: 
+if "%COMMIT_MSG%"=="" set "COMMIT_MSG=Update résumé"
+
 REM Block Cursor branding in commit messages (hooks/commit-msg).
 set "GIT_HOOKS=%~dp0hooks"
 if exist "%GIT_HOOKS%\commit-msg" (
   git -c core.hooksPath="%GIT_HOOKS%" diff --cached --quiet
   if errorlevel 1 (
-    git -c core.hooksPath="%GIT_HOOKS%" commit -m "Update résumé"
+    git -c core.hooksPath="%GIT_HOOKS%" commit -m "%COMMIT_MSG%"
   ) else (
     echo No changes to commit.
   )
 ) else (
   git diff --cached --quiet
   if errorlevel 1 (
-    git commit -m "Update résumé"
+    git commit -m "%COMMIT_MSG%"
   ) else (
     echo No changes to commit.
   )
