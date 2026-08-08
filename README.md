@@ -1,6 +1,6 @@
 # resume.kdrcoding.com
 
-Password-protected static résumé site for **Kadir Ravshanov** — IT Support Specialist / Junior Systems Administrator.
+Password-protected static résumé site for **Kadir Ravshanov** — IT Support Specialist / Systems Administrator.
 
 ## Files
 
@@ -22,10 +22,6 @@ Password-protected static résumé site for **Kadir Ravshanov** — IT Support S
 3. Lock: double-click `lock-resume.bat` and enter your résumé password.
    - Optional: save the password in a local `.resume-pw` file (gitignored) to skip the prompt.
 4. Publish: run `push.bat`.
-
-**Deploy rules:** Commit messages and published content must never mention Cursor or Cursor contributors. Only link GitHub projects that still exist under `github.com/kdrcoding`.
-
-**GitHub Contributors:** If `cursoragent` appears on the repo, it is from Cursor’s automatic `Co-authored-by` trailer on past commits. Turn off Cursor **Agents → Attribution**, use `push.bat` (hooks strip trailers), and avoid committing from Cursor Cloud Agent on this repo.
 
 **Do not add:** home street address, date of birth, immigration documents, or green card status.
 
