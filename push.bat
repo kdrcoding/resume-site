@@ -30,7 +30,7 @@ set "COMMIT_MSG=Update résumé"
 set /p COMMIT_MSG=Commit message [Update résumé]: 
 if "%COMMIT_MSG%"=="" set "COMMIT_MSG=Update résumé"
 
-REM Block Cursor branding in commit messages (hooks/commit-msg).
+REM Validate commit message via local hooks.
 set "GIT_HOOKS=%~dp0hooks"
 if exist "%GIT_HOOKS%\commit-msg" (
   git -c core.hooksPath="%GIT_HOOKS%" diff --cached --quiet

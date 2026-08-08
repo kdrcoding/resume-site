@@ -1,15 +1,14 @@
 #!/bin/sh
-# Strip Cursor Agent co-author trailers before the commit is created.
-# Cursor can inject: Co-authored-by: Cursor <cursoragent@cursor.com>
-
+# Strip injected co-author trailers from automated tooling.
 MSG_FILE="$1"
 [ -f "$MSG_FILE" ] || exit 0
 
-TMP="${MSG_FILE}.nocursor"
-grep -vi \
-  -e 'cursoragent@cursor.com' \
-  -e 'co-authored-by:.*cursor' \
-  -e 'made-with:.*cursor' \
+TMP="${MSG_FILE}.clean"
+grep -viE \
+  -e 'cursoragent@cursor\.com' \
+  -e 'co-authored-by:.*(cursor|claude|openai|chatgpt|copilot)' \
+  -e 'made-with:.*(cursor|claude|openai|chatgpt|copilot)' \
+  -e 'generated[ -]with.*(cursor|claude|openai|chatgpt|copilot)' \
   "$MSG_FILE" > "$TMP" && mv "$TMP" "$MSG_FILE"
 
 exit 0

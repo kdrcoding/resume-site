@@ -1,11 +1,9 @@
 #!/bin/sh
-# Final safety check: block any Cursor branding left in the commit message.
-
+# Block commits that still contain injected tooling attribution.
 MSG_FILE="$1"
 
-if grep -qiE 'cursoragent@cursor\.com|co-authored-by:.*cursor|made-with:.*cursor' "$MSG_FILE"; then
-  echo "ERROR: Cursor attribution detected in commit message."
-  echo "Disable Cursor Settings > Agents > Attribution, then try again."
+if grep -qiE 'cursoragent@cursor\.com|co-authored-by:.*(cursor|claude|openai|chatgpt|copilot)|made-with:.*(cursor|claude|openai|chatgpt|copilot)|generated[ -]with.*(cursor|claude|openai|chatgpt|copilot)' "$MSG_FILE"; then
+  echo "ERROR: Remove third-party co-author / generated-with trailers from the commit message."
   exit 1
 fi
 
