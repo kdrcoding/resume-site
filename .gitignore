@@ -5,3 +5,6 @@ Thumbs.db
 
 # Plaintext resume — NEVER publish this. Only the encrypted index.html is pushed.
 resume-plain.html
+
+# Word résumé: packed inside the encrypted payload by lock.mjs, never pushed as a file
+*.docx

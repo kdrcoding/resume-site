@@ -45,7 +45,25 @@ if (!styleMatch) {
 }
 const styleBlock = styleMatch[0];
 const sprite = between(html, "<!-- SPRITE:START -->", "<!-- SPRITE:END -->");
-const resume = between(html, "<!-- RESUME:START -->", "<!-- RESUME:END -->");
+let resume = between(html, "<!-- RESUME:START -->", "<!-- RESUME:END -->");
+
+// The Word résumé is not published as a file (the repo is public). It is packed into the
+// encrypted body as a data: link, so it can only be downloaded after unlocking.
+const DOCX = "Kadir-Ravshanov-Resume.docx";
+const docxHref = 'href="' + DOCX + '"';
+if (resume.includes(docxHref)) {
+  let docxBytes;
+  try {
+    docxBytes = readFileSync(DOCX);
+  } catch {
+    console.error("ERROR: " + DOCX + " not found next to resume-plain.html (the Download Word button needs it).");
+    process.exit(1);
+  }
+  resume = resume.replace(
+    docxHref,
+    'href="data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,' + docxBytes.toString("base64") + '"'
+  );
+}
 
 const enc = new TextEncoder();
 const salt = getRandomValues(new Uint8Array(16));
