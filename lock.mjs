@@ -149,7 +149,7 @@ const lockHtml = [
   '      <div class="lock-divider">Need the password?</div>',
   '      <div class="lock-contact">',
   '        <a href="mailto:kadir@kdrcoding.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span>kadir@kdrcoding.com</span></a>',
-  '        <a href="https://linkedin.com/in/kadir-ravshanov-961994187" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-linkedin"/></svg><span>LinkedIn &mdash; Kadir Ravshanov</span></a>',
+  '        <a href="https://linkedin.com/in/kadir-r-961994187" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-linkedin"/></svg><span>LinkedIn &mdash; Kadir Ravshanov</span></a>',
   '        <a href="https://github.com/kdrcoding" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-github"/></svg><span>github.com/kdrcoding</span></a>',
   "      </div>",
   '      <p class="lock-foot">Reach out and I&rsquo;ll gladly share access.</p>',
